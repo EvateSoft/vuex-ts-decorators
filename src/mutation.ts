@@ -4,7 +4,8 @@ function factory(target: any, name: string, method: Function): any {
   queueDecorator((store: any) => {
     store.mutations = store.mutations || {};
     store.mutations[name] = (state: any, ...args: any[]) => {
-      method.apply(store.state, args);
+      // method.apply(store.state, args);
+        method.apply(store,args);
     }
   });
 }
